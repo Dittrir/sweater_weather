@@ -3,10 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'validations' do
     let(:user)  { build :user }
-    describe '#name' do
-      it { should validate_presence_of(:name) }
-      it { should_not allow_value(nil).for(:name) }
-    end
 
     describe '#email' do
       it { should validate_presence_of(:email) }
