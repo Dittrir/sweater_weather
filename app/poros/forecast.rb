@@ -6,8 +6,9 @@ class Forecast
     @current_weather = current_weather(data)
     @daily_weather = daily_weather(data)
     @hourly_weather = hourly_weather(data)
+  end
 
-    #current_weather
+  def current_weather
     datetime = Time.at(data[:current][:dt]).to_datetime
     sunrise = Time.at(data[:current][:sunrise]).to_datetime
     sunrise = Time.at(data[:current][:sunset]).to_datetime
@@ -18,8 +19,9 @@ class Forecast
     visibility = data[:current][:visibility]
     conditions = data[:current][:weather].first[:description]
     icon = data[:current][:weather].first[:icon]
+  end
 
-    #daily_weather
+  def daily_weather
     next_five_days = data[:daily].first(5)
     next_five_days.map do |day|
       date = Time.at(day[:dt]).to_datetime.strftime("%Y-%d-%m")
@@ -30,8 +32,9 @@ class Forecast
       conditions = day[:weather].first[:description]
       icon = day[:weather].first[:icon]
     end
+  end
 
-    #hourly_weather
+  def hourly_weather
     next_eight_hours = data[:hourly].first(8)
     next_eight_hours.map do |hour|
       time = Time.at(hour[:dt]).to_datetime.strftime("%I:%M %p")
@@ -39,14 +42,5 @@ class Forecast
       conditions = hour[:weather].first[:description]
       icon = hour[:weather].first[:icon]
     end
-  end
-
-  def current_weather
-  end
-
-  def daily_weather
-  end
-
-  def hourly_weather
   end
 end
