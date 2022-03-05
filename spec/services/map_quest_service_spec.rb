@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MapQuestService do
   describe "methods" do
     it '#get_lat_long_for' do
-      location = '3624 Kansas St, Bellingham, WA, 98229'
+      location = 'Bellingham, WA'
 
       lat_long = MapQuestService.get_lat_long_for(location)
 
