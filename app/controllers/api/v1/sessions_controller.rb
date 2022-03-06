@@ -1,12 +1,14 @@
 class Api::V1::SessionsController < ApplicationController
 
   def create
-    binding.pry
     user = User.find_by(email: params[:email])
-    if user.save
+    if user == nil
+      render(json: {error: "User does not exist."}, status: 401 )
+    elsif user.authenticate(params[:password])
       render(json: SessionSerializer.new(Session.find(user.id)), status: :created)
     else
-      render json: { status: 400, message: "#{user.errors.full_messages.to_sentence}", data: user.errors}, status: :bad_request
+      render(json: {error: "Email or password is incorrect. Please try again."}, status: 401 )
+      redirect_to "/login"
     end
   end
 end
