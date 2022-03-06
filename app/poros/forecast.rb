@@ -9,7 +9,6 @@ class Forecast
   def current_weather
     {
       :datetime => Time.at(@data[:current][:dt]).to_datetime,
-      :sunrise => Time.at(@data[:current][:sunrise]).to_datetime,
       :sunrise => Time.at(@data[:current][:sunset]).to_datetime,
       :temperature => @data[:current][:temp],
       :feels_like => @data[:current][:feels_like],
