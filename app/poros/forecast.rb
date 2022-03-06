@@ -3,28 +3,26 @@ class Forecast
 
   def initialize(data)
     @id = nil
-    @current_weather = current_weather(data)
-    @daily_weather = daily_weather(data)
-    @hourly_weather = hourly_weather(data)
+    @data = data
   end
 
   def current_weather
     {
-      :datetime => Time.at(data[:current][:dt]).to_datetime,
-      :sunrise => Time.at(data[:current][:sunrise]).to_datetime,
-      :sunrise => Time.at(data[:current][:sunset]).to_datetime,
-      :temperature => data[:current][:temp],
-      :feels_like => data[:current][:feels_like],
-      :humidity => data[:current][:humidity],
-      :uvi => data[:current][:uvi],
-      :visibility => data[:current][:visibility],
-      :conditions => data[:current][:weather].first[:description],
-      :icon => data[:current][:weather].first[:icon]
+      :datetime => Time.at(@data[:current][:dt]).to_datetime,
+      :sunrise => Time.at(@data[:current][:sunrise]).to_datetime,
+      :sunrise => Time.at(@data[:current][:sunset]).to_datetime,
+      :temperature => @data[:current][:temp],
+      :feels_like => @data[:current][:feels_like],
+      :humidity => @data[:current][:humidity],
+      :uvi => @data[:current][:uvi],
+      :visibility => @data[:current][:visibility],
+      :conditions => @data[:current][:weather].first[:description],
+      :icon => @data[:current][:weather].first[:icon]
     }
   end
 
   def daily_weather
-    next_five_days = data[:daily].first(5)
+    next_five_days = @data[:daily].first(5)
     next_five_days.map do |day|
       {
       :date => Time.at(day[:dt]).to_datetime.strftime("%Y-%d-%m"),
@@ -39,7 +37,7 @@ class Forecast
   end
 
   def hourly_weather
-    next_eight_hours = data[:hourly].first(8)
+    next_eight_hours = @data[:hourly].first(8)
     next_eight_hours.map do |hour|
       {
         :time => Time.at(hour[:dt]).to_datetime.strftime("%I:%M %p"),
