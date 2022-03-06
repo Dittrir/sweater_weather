@@ -9,8 +9,10 @@ class User < ApplicationRecord
   has_secure_password
 
   before_create :add_api_key
+
 private
+
   def add_api_key
-    self.api_key = SecureRandom.hex(27)
+    self.api_key = SecureRandom.hex
   end
 end
