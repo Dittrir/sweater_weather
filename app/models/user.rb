@@ -5,5 +5,12 @@ class User < ApplicationRecord
             :uniqueness => true
   validates :password_digest,
             :presence => {message: "can't be blank"}
+
   has_secure_password
+
+  before_create :add_api_key
+private
+  def add_api_key
+    self.api_key = SecureRandom.hex(27)
+  end
 end
