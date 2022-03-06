@@ -18,7 +18,7 @@
           1,
           null,
           1,
-          2,
+          1,
           null,
           null
         ]
@@ -34,8 +34,8 @@
         "lines": [
           1,
           1,
-          3,
-          3,
+          4,
+          4,
           null,
           null,
           null,
@@ -43,6 +43,12 @@
           3,
           null,
           3,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
           null,
           null
         ]
@@ -230,13 +236,14 @@
           null
         ]
       },
-      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/controllers/api/v1/users_controller.rb": {
+      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/controllers/api/v1/road_trips_controller.rb": {
         "lines": [
           1,
+          null,
           1,
           1,
           1,
-          1,
+          0,
           null,
           0,
           null,
@@ -244,23 +251,103 @@
           null,
           1,
           1,
+          4,
+          null,
+          null
+        ]
+      },
+      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/facades/road_trip_facade.rb": {
+        "lines": [
           1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/poros/route.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          0,
           null,
           null
         ]
       },
       "/Users/robindittrich/turing/3module/projects/sweater_weather/app/serializers/user_serializer.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/serializers/session_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/controllers/api/v1/users_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
-          null
-        ]
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/controllers/api/v1/sessions_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1646596231
+    "timestamp": 1646606007
   }
 }
