@@ -34,7 +34,7 @@ RSpec.describe 'The weather forcast API' do
       expect(forecast_data[:attributes][:current_weather][:humidity]).to be_a(Integer)
 
       expect(forecast_data[:attributes][:current_weather]).to have_key(:uvi)
-      expect(forecast_data[:attributes][:current_weather][:uvi]).to be_a(Float)
+      expect(forecast_data[:attributes][:current_weather][:uvi]).to be_a(Integer)
 
       expect(forecast_data[:attributes][:current_weather]).to have_key(:visibility)
       expect(forecast_data[:attributes][:current_weather][:visibility]).to be_a(Integer)
