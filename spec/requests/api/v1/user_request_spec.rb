@@ -15,7 +15,7 @@ RSpec.describe 'The user API' do
 
       new_user = JSON.parse(response.body, symbolize_names: true)
       new_user_data = new_user[:data]
-
+binding.pry
       expect(new_user_data).to have_key(:id)
       expect(new_user_data[:id]).to be_a(Integer)
 
