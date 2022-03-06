@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`post "/api/v1/users", params: new_user, as: :json`
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Screen Shot 2022-03-06 at 12 30 27 PM](https://user-images.githubusercontent.com/89048720/156940960-9005be8f-2a3c-4484-8c5a-17f3420440e1.png)
