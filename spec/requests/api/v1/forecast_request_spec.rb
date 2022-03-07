@@ -117,16 +117,6 @@ RSpec.describe 'The weather forcast API' do
       end
     end
 
-    it 'sad path: no results found' do
-      get "/api/v1/forecast?location=NOMATCH"
-
-      return_value = JSON.parse(response.body, symbolize_names: true)
-
-      expect(response).to be_successful
-      expect(response.status).to eq(200)
-      expect(return_value[:data][:message]).to eq("There were no matches")
-    end
-
     it 'edge case: no params given' do
       get "/api/v1/forecast"
 
