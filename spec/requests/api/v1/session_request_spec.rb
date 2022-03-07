@@ -32,5 +32,47 @@ RSpec.describe 'The session API' do
       expect(new_session_data[:attributes]).to have_key(:api_key)
       expect(new_session_data[:attributes][:api_key]).to be_a(String)
     end
+
+    it 'sad path: insufficient params' do
+      new_user = {
+                  "email": "whatever@example.com",
+                  "password": "password",
+                  "password_confirmation": "password"
+                  }
+
+      post "/api/v1/users", params: new_user, as: :json
+
+      new_session = {
+                  "email": "whatever@example.com"
+                  }
+
+      post "/api/v1/sessions", params: new_session, as: :json
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+      expect(return_value[:error]).to eq("Email or password is incorrect. Please try again.")
+    end
+
+    it 'edge case: user does not exits' do
+      new_user = {
+                  "email": "whatever@example.com",
+                  "password": "password",
+                  "password_confirmation": "password"
+                  }
+
+      post "/api/v1/users", params: new_user, as: :json
+
+      new_session = {
+                  "password": "password"
+                  }
+
+      post "/api/v1/sessions", params: new_session, as: :json
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+      expect(return_value[:error]).to eq("User does not exist.")
+    end
   end
 end
