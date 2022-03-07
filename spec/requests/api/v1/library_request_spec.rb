@@ -6,7 +6,7 @@ RSpec.describe 'The open library API' do
       location = "denver, co"
       quantity = 5
 
-      get "/api/v1/book-search?location=#{place}&quantity=#{count}"
+      get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
 
       data = JSON.parse(response.body, symbolize_names: true)
 
