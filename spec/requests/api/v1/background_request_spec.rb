@@ -36,5 +36,35 @@ RSpec.describe 'The background API' do
       expect(background_data[:attributes][:image][:credit]).to have_key(:logo)
       expect(background_data[:attributes][:image][:credit][:logo]).to be_a(String)
     end
+
+    it 'sad path: no results found' do
+      get "/api/v1/backgrounds?location=NOMATCH"
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+      expect(return_value[:data][:message]).to eq("There were no matches")
+    end
+
+    it 'edge case: no params given' do
+      get "/api/v1/backgrounds"
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      expect(return_value[:data][:message]).to eq("Insufficent query parameters")
+    end
+
+    it 'edge case: no name given' do
+      get "/api/v1/backgrounds?location="
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      expect(return_value[:data][:message]).to eq("Insufficent query parameters")
+    end
   end
 end
