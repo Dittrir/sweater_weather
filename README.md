@@ -7,11 +7,10 @@
 [![All Contributors](https://img.shields.io/badge/contributors-1-orange.svg?style=flat)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-![image](https://user-images.githubusercontent.com/89048720/153535281-582015ee-2682-44cc-bae1-84b7d98d418e.png)
-
+![IMG_5868](https://user-images.githubusercontent.com/89048720/157115569-f0aa1d95-a6c7-4948-9f93-4edff9da022d.jpeg)
 
 ## Description
-Rails-engine is an application developed to mimic an E-Commerce Application. The plan was to structure this in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs. My job was to expose the data that powers the site through an API that the front end will consume.
+Sweather Weather is an application designed to provide the user with forecast conditions at the location they are visiting, when they plan on arriving. The API can return weather for a location, a background image for that location, create a new user, log that user in and create a new session, input a location that the user is traveling to and return a weather forecast for that location. This app will be a great addition to any upcoming trip!
 
 
 ## Learning Goals 
