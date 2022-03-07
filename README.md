@@ -1,4 +1,4 @@
-# Rails-Engine Lite: Turing 2110 BE Mod 3
+# Sweater Weather: Turing 2110 BE Mod 3
 
 [![Dittrir commits](https://badgen.net/github/commits/Naereen/StrapDown.js)](https://GitHub.com/Dittrir/sweater_weather/commits?author=Dittrir)
 ![languages](https://img.shields.io/github/languages/top/Dittrir/sweater_weather?color=red)
