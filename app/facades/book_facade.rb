@@ -1,8 +1,8 @@
 class BookFacade
   def self.search_for_book(location, quantity)
     forecast = weather_at(location)
-    binding.pry
-    book = BookService.search_for_book(location, quantity)
+    book = BookService.search_for_book(location)[:docs]
+    book_results = book.first(quantity.to_i)
 
     Book.new(book)
 
