@@ -46,4 +46,13 @@ class Forecast
       }
     end
   end
+
+  def get_eta_forecast
+    @data[:hourly].map do |hour|
+    {
+      :temperature => hour[:temp],
+      :conditions => hour[:weather].first[:description]
+    }
+    end
+  end
 end
