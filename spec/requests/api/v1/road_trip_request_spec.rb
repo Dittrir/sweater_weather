@@ -69,5 +69,21 @@ RSpec.describe 'The road trip API' do
 
       expect(return_value[:data][:attributes][:weather_at_eta]).to eq(expected)
     end
+
+    it 'edge case: impossible trip' do
+      new_road_trip = {
+                        "origin": "Juneau,AK",
+                        "destination": "Berlin, Germany",
+                        "api_key": "jgn983hy48thw9begh98h4539h4"
+                      }
+
+      post "/api/v1/road_trip", params: new_road_trip, as: :json
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+      expect(response).to be_successful
+      expect(response.status).to eq(201)
+
+      expect(return_value[:data][:attributes][:travel_time]).to eq("impossible route")
+    end
   end
 end
