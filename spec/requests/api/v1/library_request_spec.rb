@@ -8,8 +8,6 @@ RSpec.describe 'The open library API' do
 
       get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
 
-      data = JSON.parse(response.body, symbolize_names: true)
-
       expect(response).to be_successful
 
       book_search = JSON.parse(response.body, symbolize_names: true)
