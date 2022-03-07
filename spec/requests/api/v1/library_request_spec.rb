@@ -35,7 +35,7 @@ RSpec.describe 'The open library API' do
       expect(book_search_data[:attributes][:books]).to be_a(Array)
     end
 
-    it 'happy path' do
+    it 'sad path: returns error message for invalid parameters' do
       location = "denver, co"
       quantity = -1
 
@@ -43,7 +43,7 @@ RSpec.describe 'The open library API' do
 
       expect(response).to_not be_successful
       response_body = JSON.parse(response.body, symbolize_names: true)
-      
+
       expect(response_body[:error]).to eq("Invalid Quantity")
     end
   end
