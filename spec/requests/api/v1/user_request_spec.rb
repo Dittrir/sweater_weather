@@ -25,5 +25,19 @@ RSpec.describe 'The user API' do
       expect(new_user_data[:attributes]).to have_key(:api_key)
       expect(new_user_data[:attributes][:api_key]).to be_a(String)
     end
+
+    it 'sad path: insufficient params' do
+      new_user = {
+                  "password": "password",
+                  "password_confirmation": "password"
+                  }
+
+      post "/api/v1/users", params: new_user, as: :json
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      expect(return_value[:message]).to eq("Email is invalid and Email can't be blank")
+    end
   end
 end

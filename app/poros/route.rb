@@ -6,16 +6,12 @@ class Route
     @time = data[:time]
   end
 
-  def time_in_minutes
-    (@time.to_f / 60).round(2)
-  end
-
   def time_in_hours
     (@time.to_f / 3600).round(2)
   end
 
   def data_formatter(start_city, end_city, time_in_hours, weather_at_eta)
-    if time_in_hours == nil
+    if time_in_hours == 0.0
       travel_time = "impossible route"
     else
       minutes = (time_in_hours * 60).round(0) % 60

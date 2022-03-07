@@ -116,5 +116,25 @@ RSpec.describe 'The weather forcast API' do
         expect(day[:icon]).to be_a(String)
       end
     end
+
+    it 'edge case: no params given' do
+      get "/api/v1/forecast"
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      expect(return_value[:data][:message]).to eq("Insufficent query parameters")
+    end
+
+    it 'edge case: no name given' do
+      get "/api/v1/forecast?location="
+
+      return_value = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      expect(return_value[:data][:message]).to eq("Insufficent query parameters")
+    end
   end
 end
