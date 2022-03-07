@@ -61,6 +61,18 @@
           null
         ]
       },
+      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/poros/book.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          11,
+          11,
+          11,
+          null,
+          null
+        ]
+      },
       "/Users/robindittrich/turing/3module/projects/sweater_weather/app/services/book_service.rb": {
         "lines": [
           1,
@@ -185,18 +197,6 @@
           null,
           null,
           null,
-          null,
-          null
-        ]
-      },
-      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/poros/book.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          10,
-          10,
-          10,
           null,
           null
         ]
@@ -513,6 +513,6 @@
         ]
       }
     },
-    "timestamp": 1646676235
+    "timestamp": 1646677192
   }
 }
