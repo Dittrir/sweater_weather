@@ -261,11 +261,11 @@
           1,
           1,
           1,
+          null,
+          1,
           1,
           null,
           0,
-          null,
-          null,
           null,
           null,
           1,
@@ -289,6 +289,22 @@
           1,
           null,
           1,
+          null,
+          null
+        ]
+      },
+      "/Users/robindittrich/turing/3module/projects/sweater_weather/app/poros/book.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           null
         ]
@@ -499,6 +515,6 @@
         }
       }
     },
-    "timestamp": 1646672049
+    "timestamp": 1646672946
   }
 }

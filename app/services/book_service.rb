@@ -4,7 +4,7 @@ class BookService
   end
 
   def self.search_for_book(location)
-    response = conn.get("/search/authors.json?q=#{location}")
+    response = conn.get("/search.json?q=#{location}")
 
     JSON.parse(response.body, symbolize_names: true)
   end
