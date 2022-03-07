@@ -23,6 +23,8 @@ Rails-engine is an application developed to mimic an E-Commerce Application. The
 
 ## Schema
 ![Screen Shot 2022-03-07 at 12 27 31 PM](https://user-images.githubusercontent.com/89048720/157112673-0a1d4cd2-84a1-4a83-b47d-370fbf28b1bd.png)
+
+
 The "User" table is the only local database.
 
 ## Local Setup
