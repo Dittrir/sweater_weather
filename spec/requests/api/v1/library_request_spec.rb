@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'The open library API' do
-  describe "returns books" do
+  describe "returns query results" do
     it 'happy path' do
       location = "denver, co"
       quantity = 5
