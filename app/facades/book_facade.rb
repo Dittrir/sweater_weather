@@ -2,11 +2,19 @@ class BookFacade
   def self.search_for_book(location, quantity)
     forecast = weather_at(location)
     json = BookService.search_for_book(location)
-
+    total_books_found = json[:numFound]
     books = json[:docs].first(quantity.to_i).map do |book|
       Book.new(book)
     end
-    binding.pry
+
+    data = {
+              :destination => location,
+              :forecast => forecast,
+              :total_books_found => total_books_found,
+              :books => books
+            }
+
+    BookSearch.new(data)
   end
 
   def self.weather_at(destination)
