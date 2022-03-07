@@ -17,8 +17,8 @@ class BookFacade
     BookSearch.new(data)
   end
 
-  def self.weather_at(destination)
-    destination_forecast = ForecastFacade.get_forcast_for(destination)
+  def self.weather_at(location)
+    destination_forecast = ForecastFacade.get_forcast_for(location)
        {
          :summary=> "#{destination_forecast.get_eta_forecast[0][:conditions]}",
          :temperature => "#{destination_forecast.get_eta_forecast[0][:temperature]} F"
