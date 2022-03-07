@@ -34,5 +34,17 @@ RSpec.describe 'The open library API' do
       expect(book_search_data[:attributes]).to have_key(:books)
       expect(book_search_data[:attributes][:books]).to be_a(Array)
     end
+
+    it 'happy path' do
+      location = "denver, co"
+      quantity = -1
+
+      get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
+
+      expect(response).to_not be_successful
+      response_body = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(response_body[:error]).to eq("Invalid Quantity")
+    end
   end
 end
