@@ -71,7 +71,7 @@ This project was designed around tests that were created in [Postman](https://ww
 
 ![Screen Shot 2022-03-07 at 12 04 39 PM](https://user-images.githubusercontent.com/89048720/157109453-d3d3637a-2a5d-4374-81b8-e91acdf2b65e.png)
 
-2. Register A New User
+2. Register A New User: Happy Path
 
 ```ruby
 new_user = {
@@ -84,6 +84,19 @@ post "/api/v1/users", params: new_user, as: :json
 ```
 
 ![Screen Shot 2022-03-06 at 12 30 27 PM](https://user-images.githubusercontent.com/89048720/156940960-9005be8f-2a3c-4484-8c5a-17f3420440e1.png)
+
+2. Register A New User: Sad Path
+
+```ruby
+new_user = {
+              "password": "password",
+              "password_confirmation": "password"
+            }
+                  
+post "/api/v1/users", params: new_user, as: :json
+```
+
+
 
 3. Login A User And Create A New Session
 
