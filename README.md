@@ -96,9 +96,10 @@ new_user = {
 post "/api/v1/users", params: new_user, as: :json
 ```
 
+![Screen Shot 2022-03-08 at 10 21 31 AM](https://user-images.githubusercontent.com/89048720/157301155-57459806-fd64-4667-bbac-750d81fe05d3.png)
 
 
-3. Login A User And Create A New Session
+3. Login A User And Create A New Session: Happy Path
 
 ```ruby
 new_user = {
@@ -119,8 +120,28 @@ post "/api/v1/sessions", params: new_session, as: :json
 
 ![Screen Shot 2022-03-07 at 12 11 55 PM](https://user-images.githubusercontent.com/89048720/157110559-1c9c5950-93b0-4a6d-8c9a-ec6034a90f03.png)
 
+3. Login A User And Create A New Session: Sad Path
 
-4. Create A New Road Trip
+```ruby
+new_user = {
+              "email": "whatever@example.com",
+              "password": "password",
+              "password_confirmation": "password"
+            }
+
+post "/api/v1/users", params: new_user, as: :json
+
+new_session = {
+                "email": "whatever@example.com",
+                "password": "password"
+               }
+
+post "/api/v1/sessions", params: new_session, as: :json
+ ```
+ 
+![Screen Shot 2022-03-08 at 10 23 30 AM](https://user-images.githubusercontent.com/89048720/157301475-d0e882a6-779b-4d25-a6db-a1183d25b48f.png)
+
+4. Create A New Road Trip: Happy Path
 
 ```ruby
 new_road_trip = {
@@ -133,6 +154,21 @@ post "/api/v1/road_trip", params: new_road_trip, as: :json
 ```
 
 ![Screen Shot 2022-03-07 at 12 17 27 PM](https://user-images.githubusercontent.com/89048720/157111271-8fe7ef58-a262-4617-89e9-46ea416e57d9.png) 
+
+4. Create A New Road Trip: Sad Path
+
+```ruby
+new_road_trip = {
+                  "origin": "Denver,CO",
+                  "destination": "Pueblo,CO",
+                  "api_key": "jgn983hy48thw9begh98h4539h4"
+                }
+
+post "/api/v1/road_trip", params: new_road_trip, as: :json
+```
+
+![Screen Shot 2022-03-08 at 10 26 26 AM](https://user-images.githubusercontent.com/89048720/157301923-39a9a1ff-fcd1-4c81-9720-ad150fb69ed4.png)
+
 
 
 ## Versions
