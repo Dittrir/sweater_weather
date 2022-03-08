@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'The user API' do
   describe "can register a new user" do
-    it 'happy path' do
+    it 'happy path', :vcr do
       new_user = {
                   "email": "whatever@example.com",
                   "password": "password",
@@ -26,7 +26,7 @@ RSpec.describe 'The user API' do
       expect(new_user_data[:attributes][:api_key]).to be_a(String)
     end
 
-    it 'sad path: insufficient params' do
+    it 'sad path: insufficient params', :vcr do
       new_user = {
                   "password": "password",
                   "password_confirmation": "password"

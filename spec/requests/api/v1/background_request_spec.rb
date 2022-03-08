@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'The background API' do
   describe "returns a background for a specific location" do
-    it 'happy path' do
+    it 'happy path', :vcr do
       location = "Bellingham, WA"
 
       get "/api/v1/backgrounds?location=#{location}"
@@ -37,7 +37,7 @@ RSpec.describe 'The background API' do
       expect(background_data[:attributes][:image][:credit][:logo]).to be_a(String)
     end
 
-    it 'sad path: no results found' do
+    it 'sad path: no results found', :vcr do
       get "/api/v1/backgrounds?location=NOMATCH"
 
       return_value = JSON.parse(response.body, symbolize_names: true)
@@ -47,7 +47,7 @@ RSpec.describe 'The background API' do
       expect(return_value[:data][:message]).to eq("There were no matches")
     end
 
-    it 'edge case: no params given' do
+    it 'edge case: no params given', :vcr do
       get "/api/v1/backgrounds"
 
       return_value = JSON.parse(response.body, symbolize_names: true)
@@ -57,7 +57,7 @@ RSpec.describe 'The background API' do
       expect(return_value[:data][:message]).to eq("Insufficent query parameters")
     end
 
-    it 'edge case: no name given' do
+    it 'edge case: no name given', :vcr do
       get "/api/v1/backgrounds?location="
 
       return_value = JSON.parse(response.body, symbolize_names: true)

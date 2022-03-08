@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'The road trip API' do
   describe "can start a new road trip" do
-    it 'happy path' do
+    it 'happy path', :vcr do
       new_road_trip = {
                         "origin": "Denver,CO",
                         "destination": "Pueblo,CO",
@@ -38,7 +38,7 @@ RSpec.describe 'The road trip API' do
       expect(new_road_trip_data[:attributes][:weather_at_eta][:conditions]).to be_a(String)
     end
 
-    it 'sad path: insufficient params' do
+    it 'sad path: insufficient params', :vcr do
       new_road_trip = {
                         "destination": "Pueblo,CO",
                         "api_key": "jgn983hy48thw9begh98h4539h4"
@@ -52,7 +52,7 @@ RSpec.describe 'The road trip API' do
       expect(return_value[:error]).to eq("Origin and Destination are Required.")
     end
 
-    it 'edge case: eta exceeds forecasted conditions' do
+    it 'edge case: eta exceeds forecasted conditions', :vcr do
       new_road_trip = {
                         "origin": "Juneau,AK",
                         "destination": "Miami,FL",
@@ -70,7 +70,7 @@ RSpec.describe 'The road trip API' do
       expect(return_value[:data][:attributes][:weather_at_eta]).to eq(expected)
     end
 
-    it 'edge case: impossible trip' do
+    it 'edge case: impossible trip', :vcr do
       new_road_trip = {
                         "origin": "Juneau,AK",
                         "destination": "Berlin, Germany",

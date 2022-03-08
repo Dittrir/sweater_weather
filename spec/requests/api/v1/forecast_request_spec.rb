@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'The weather forcast API' do
   describe "returns a forecast for a specific location" do
-    it 'happy path: current_weather' do
+    it 'happy path: current_weather', :vcr do
       location = "Bellingham, WA"
 
       get "/api/v1/forecast?location=#{location}"
@@ -46,7 +46,7 @@ RSpec.describe 'The weather forcast API' do
       expect(forecast_data[:attributes][:current_weather][:icon]).to be_a(String)
     end
 
-    it 'happy path: daily_weather' do
+    it 'happy path: daily_weather', :vcr do
       location = "Bellingham, WA"
 
       get "/api/v1/forecast?location=#{location}"
@@ -86,7 +86,7 @@ RSpec.describe 'The weather forcast API' do
       end
     end
 
-    it 'happy path: hourly_weather' do
+    it 'happy path: hourly_weather', :vcr do
       location = "Bellingham, WA"
 
       get "/api/v1/forecast?location=#{location}"
@@ -117,7 +117,7 @@ RSpec.describe 'The weather forcast API' do
       end
     end
 
-    it 'edge case: no params given' do
+    it 'edge case: no params given', :vcr do
       get "/api/v1/forecast"
 
       return_value = JSON.parse(response.body, symbolize_names: true)
@@ -127,7 +127,7 @@ RSpec.describe 'The weather forcast API' do
       expect(return_value[:data][:message]).to eq("Insufficent query parameters")
     end
 
-    it 'edge case: no name given' do
+    it 'edge case: no name given', :vcr do
       get "/api/v1/forecast?location="
 
       return_value = JSON.parse(response.body, symbolize_names: true)

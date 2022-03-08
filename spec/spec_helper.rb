@@ -14,8 +14,11 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
+require 'webmock/rspec'
 SimpleCov.start 'rails'
 SimpleCov.add_filter %w[spec config app/channels app/mailers app/jobs]
+WebMock.disable_net_connect!
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
