@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'The session API' do
   describe "can start a new session" do
-    it 'happy path' do
+    it 'happy path', :vcr do
       new_user = {
                   "email": "whatever@example.com",
                   "password": "password",
@@ -33,7 +33,7 @@ RSpec.describe 'The session API' do
       expect(new_session_data[:attributes][:api_key]).to be_a(String)
     end
 
-    it 'sad path: insufficient params' do
+    it 'sad path: insufficient params', :vcr do
       new_user = {
                   "email": "whatever@example.com",
                   "password": "password",
@@ -54,7 +54,7 @@ RSpec.describe 'The session API' do
       expect(return_value[:error]).to eq("Email or password is incorrect. Please try again.")
     end
 
-    it 'edge case: user does not exits' do
+    it 'edge case: user does not exits', :vcr do
       new_user = {
                   "email": "whatever@example.com",
                   "password": "password",
